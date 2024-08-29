@@ -1,0 +1,66 @@
+INICIO
+  "El programa comienza."
+
+   Entrada de Datos del Usuario
+   ingrese su Título (Sr./Sra.)
+   ingrese su Nombre
+  ingrese su Apellido
+  Mostrar "Sr./Sra. [Nombre] [Apellido], ¡Bienvenido a FastFast Airlines!"
+
+  Selección de Vuelo
+  HACER
+    Ingrese su origen (Medellín, Bogotá, Cartagena)
+    Ingrese su destino (Medellín, Bogotá, Cartagena)
+    SI Origen = Destino ENTONCES
+      Mostrar "Error: El origen y el destino no pueden ser iguales."
+    FIN SI
+  MIENTRAS Origen = Destino
+
+   Fecha del Vuelo
+  Ingrese Día de la semana
+  Ingrese Día del mes (1-30)
+
+   Calcular Distancia
+  SI Origen = "Medellín" Y Destino = "Bogotá" ENTONCES
+    Distancia = 240
+  SI NO Origen = "Medellín" Y Destino = "Cartagena" ENTONCES
+    Distancia = 461
+  SI NO Origen = "Bogotá" Y Destino = "Cartagena" ENTONCES
+    Distancia = 657
+  FIN SI
+
+   Calcular Precio del Boleto
+  SI Distancia < 400 ENTONCES
+    SI Día de la semana es entre lunes y jueves ENTONCES
+      Precio = 79900
+    SI NO ENTONCES
+      Precio = 119900
+    FIN SI
+  SI NO ENTONCES
+    SI Día de la semana es entre lunes y jueves ENTONCES
+      Precio = 156900
+    SI NO ENTONCES
+      Precio = 213000
+    FIN SI
+  FIN SI
+    Preferencia de Asiento
+  Solicitar preferencia de asiento (Pasillo, Ventana, Sin preferencia)
+
+  Asignar Asiento
+  SI preferencia = "Pasillo" ENTONCES
+    Asiento = "C"
+  SI NO preferencia = "Ventana" ENTONCES
+    Asiento = "A"
+  SI NO preferencia = "Sin preferencia" ENTONCES
+    Asiento = "B"
+  FIN SI
+  Generar número de asiento aleatorio (1-29)
+
+  Mostrar Información Final
+  Mostrar "Nombre: [Nombre] [Apellido]"
+  Mostrar "Vuelo de: [Origen] a [Destino]"
+  Mostrar "Fecha: [Día del mes] de [Día de la semana]"
+  Mostrar "Precio del boleto: [Precio]"
+  Mostrar "Asiento asignado: [NúmeroAsiento][LetraAsiento]"
+
+FIN
