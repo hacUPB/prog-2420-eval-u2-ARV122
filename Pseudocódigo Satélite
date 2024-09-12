@@ -1,0 +1,44 @@
+Inicio 
+  # Solicitar datos de entrada 
+  Mostrar "Introduce la altitud del satelite en (kilometros):"
+  leer altitud_inicial 
+  Mostrar "Introduce el coeficiente de arrastre inicial (por ejemplo, 0.01):"
+  Leer coeficiente_arrastre
+  Mostrar "Introduce la altitud minima de seugridad (en Kilometros):"
+  Leer altitud_minimia_seguridad 
+
+  #Inicializar variables 
+  altitud_actual = altitud_inicial 
+  numero_orbitas = 0 
+  perdida_minima = 0.01 
+  satelite_reingreso = falso 
+
+  #Bucle para simular la desintregacion orbital 
+  Mientras altitud_actual > altitud_minima_seguridad Hacer 
+    # Calcular la perida de altitud 
+    altitud_perdida < coeficiente_arrastre * altitud_actual 
+
+    # Verificar si la perdida de altitud es muy pequeña (estabilidad)
+    si altitud_perdida < perdida_minima Entonces 
+      Mostrar "El satelite se ha estabilizado en una orbita baja"
+      Mostrar "Altitud final:", altitud_actual 
+      Mostrar "Numero de orbitas completadas:", numero_orbitas 
+      Romper bucle # Salir de la simulacion 
+    Fin si 
+
+  # Restar la perdida de altitud 
+  altitud_actual = altitud_actual - altitud_perdida 
+  # Incrementar el coeficiente de arrastre para simular mayor resistencia 
+  coeficiente_arrastre = coeficiente_arrastre + 0.0001 
+  #Incrementar el contador de orbitas 
+  numero_orbitas = numero_orbitas + 1
+
+  Fin mientras 
+
+  # Si el satelite ha reintegrado 
+  Si altitud_actual <= altitud_minima_seguridad Entonces 
+    Mostrar "El satelite ha reingresado en la atmosfera terrestre"
+    Mostrar"Numero total de orbitas completadas", numero_orbitas 
+  Fin si 
+
+Fin 
